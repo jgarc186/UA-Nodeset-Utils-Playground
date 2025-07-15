@@ -3,7 +3,9 @@ This is a playground for testing and exploring with the [CESMII NodeSet Utilitie
 
 The purpose of this project is to provide a simple way to run various scripts that utilize the NodeSet Utilities library, allowing for quick experimentation and testing of different functionalities.
 
-My hope is that this will be a useful tool for developers working with OPC UA nodesets, especially those who are new to the CESMII NodeSet Utilities library.
+My hope is that this will be a useful tool for developers working with OPC UA nodesets, especially those who are new to the CESMII NodeSet Utilities library and want to get a feel for how it works.
+
+Also, this project serves as a perfect starting point to implement new features or test out new ideas for the [OPC UA NodeSet WebAPI](https://github.com/ThinkIQ-Labs/OPC-UA-Nodeset-WebAPI), as it provides a simple and isolated environment to work with.
 
 ## Installation
 First, make sure you have dotnet 8 installed. You can check this by running:
@@ -39,7 +41,6 @@ namespace UA_Nodeset_Utils_Playground.Scripts;
 
 public class MyNewScript
 {
-
     public void Run()
     {
         // Your script logic here
