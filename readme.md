@@ -1,5 +1,9 @@
 # UA Nodeset Utils Playground
-This is a playground for testing and playing with the UA Nodeset Utils library.
+This is a playground for testing and exploring with the [CESMII NodeSet Utilities](https://github.com/cesmii/CESMII-NodeSet-Utilities) library.
+
+The purpose of this project is to provide a simple way to run various scripts that utilize the NodeSet Utilities library, allowing for quick experimentation and testing of different functionalities.
+
+My hope is that this will be a useful tool for developers working with OPC UA nodesets, especially those who are new to the CESMII NodeSet Utilities library.
 
 ## Installation
 First, make sure you have dotnet 8 installed. You can check this by running:
@@ -29,10 +33,11 @@ The way that it works is that it will read all the scripts in the `scripts` dire
 based on the numeric value assigned to each script.
 
 ## Adding new scripts
-To add a new script, create a new `.cs` file in the `scripts` directory. The file should contain a class that implements the `IScript` interface. Here's an example of how to create a new script:
+To add a new script, create a new `.cs` file in the `scripts` directory. Here's an example of how to create a new script:
 ```csharp
 namespace UA_Nodeset_Utils_Playground.Scripts;
-public class MyNewScript : IScript
+
+public class MyNewScript
 {
 
     public void Run()
@@ -42,7 +47,7 @@ public class MyNewScript : IScript
     }
 }
 ```
-Make sure to implement the `Run` method, which will contain the logic of your script. The name of the class will be used to identify the script in the prompt.
+Make sure to implement the `Run` or `RunAsync` method, which will contain the logic of your script. The name of the class will be used to identify the script in the prompt.
 
 ## Contributing
 If you want to contribute to this project, feel free to open a pull request with your changes. Make sure to follow the coding style of the existing scripts and add any necessary documentation.
