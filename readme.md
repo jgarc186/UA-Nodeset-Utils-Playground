@@ -50,6 +50,10 @@ public class MyNewScript
 ```
 Make sure to implement the `Run` or `RunAsync` method, which will contain the logic of your script. The name of the class will be used to identify the script in the prompt.
 
+## Walkthrough
+If you would like a walkthrough of how to implement a new script, [@gregorvilkner](https://www.linkedin.com/in/gregorvilkner/) has created an [article](https://www.linkedin.com/pulse/creating-opc-ua-information-models-using-cesmiis-net-vilkner-ph-d-/) that explains how to do this step by step.
+He isn't using this project, but the concepts are the same and it should be easy to adapt the code to work with this playground.
+
 ## Contributing
 If you want to contribute to this project, feel free to open a pull request with your changes. Make sure to follow the coding style of the existing scripts and add any necessary documentation.
 
