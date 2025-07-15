@@ -41,7 +41,6 @@ namespace UA_Nodeset_Utils_Playground.Scripts;
 
 public class MyNewScript
 {
-
     public void Run()
     {
         // Your script logic here
