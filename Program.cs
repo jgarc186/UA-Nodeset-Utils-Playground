@@ -5,7 +5,7 @@ using Opc.Ua;
 using Opc.Ua.Export;
 
 // Location of nodeset xml files
-var nodeSetDirectory = "NodeSets";
+var nodeSetDirectory = "nodesets";
 var baseNodeSetsDict = new Dictionary<string, NodeSetModel>();
 
 
