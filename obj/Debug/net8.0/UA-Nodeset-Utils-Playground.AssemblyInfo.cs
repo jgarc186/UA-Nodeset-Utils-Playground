@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UA-Nodeset-Utils-Playground")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a1534ded8b9f18309858dbd2fa8bb887a9aa90e")]
 [assembly: System.Reflection.AssemblyProductAttribute("UA-Nodeset-Utils-Playground")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UA-Nodeset-Utils-Playground")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

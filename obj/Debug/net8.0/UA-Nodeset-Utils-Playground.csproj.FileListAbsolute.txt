@@ -12,3 +12,4 @@
 /home/jose/developer/UA-Nodeset-Utils-Playground/obj/Debug/net8.0/UA-Nodeset-Utils-Playground.pdb
 /home/jose/developer/UA-Nodeset-Utils-Playground/obj/Debug/net8.0/UA-Nodeset-Utils-Playground.genruntimeconfig.cache
 /home/jose/developer/UA-Nodeset-Utils-Playground/obj/Debug/net8.0/ref/UA-Nodeset-Utils-Playground.dll
+/home/jose/developer/UA-Nodeset-Utils-Playground/obj/Debug/net8.0/UA-Nodeset-Utils-Playground.sourcelink.json
