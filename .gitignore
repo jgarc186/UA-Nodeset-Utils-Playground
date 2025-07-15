@@ -1,0 +1,20 @@
+# Build artifacts
+bin/
+obj/
+out/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+
+# JetBrains Rider
+.idea/
+
+# Test results
+TestResults/
+*.trx
+
+# Logs
+*.log
+
