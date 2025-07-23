@@ -52,4 +52,77 @@ public class BaseScript
 
         return await Task.FromResult(nodeSetModel);
     }
+
+    protected static async Task<ObjectTypeModel> CreateObjectTypeAsync(
+        NodeSetModel nodeSetModel,
+        string browseName,
+        string symbolicName,
+        ObjectTypeModel superType,
+        uint nextNodeId,
+        NodeSetModel newNodeSetModel
+    )
+    {
+        var newNodeId = new ExpandedNodeId(nextNodeId++, nodeSetModel.ModelUri);
+
+        var objectType = new ObjectTypeModel
+        {
+            DisplayName = new List<NodeModel.LocalizedText> { "Animal Type" },
+            BrowseName = browseName,
+            SymbolicName = symbolicName,
+            SuperType = superType,
+            NodeSet = newNodeSetModel,
+            NodeId = newNodeId.ToString(),
+            Properties = new List<VariableModel>(),
+            DataVariables = new List<DataVariableModel>(),
+        };
+
+        return await Task.FromResult(objectType);
+    }
+
+    /// <summary>
+    /// Creates a new ReferenceTypeModel with the specified parameters.
+    /// </summary>
+    /// <param name="nodeSetModel">The NodeSetModel to which the new ReferenceType will belong.</param>
+    /// <param name="browseName">The browse name of the new ReferenceType.</param>
+    /// <param name="symbolicName">The symbolic name of the new ReferenceType.</param>
+    /// <param name="superType">The super type of the new ReferenceType.</param>
+    /// <param name="nextNodeId">The next available NodeId for the new ReferenceType.</param>
+    /// <param name="isAbstract">Indicates whether the ReferenceType is abstract.</param>
+    /// <param name="inverseName">The inverse name of the ReferenceType, if applicable.</param>
+    /// <param name="symmetric">Indicates whether the ReferenceType is symmetric.</param>
+    /// <returns>A Task that represents the asynchronous operation, containing the created ReferenceTypeModel.</returns>
+    protected static async Task<ReferenceTypeModel> CreateReferenceTypeAsync(
+        NodeSetModel nodeSetModel,
+        string browseName,
+        string symbolicName,
+        ObjectTypeModel superType,
+        uint nextNodeId,
+        bool isAbstract = false,
+        string? inverseName = null,
+        bool symmetric = false
+    )
+    {
+        var newNodeId = new ExpandedNodeId(nextNodeId++, nodeSetModel.ModelUri);
+
+        var referenceType = new ReferenceTypeModel
+        {
+            DisplayName = new List<NodeModel.LocalizedText>
+            {
+                new NodeModel.LocalizedText { Locale = "en-US", Text = browseName }
+            },
+            BrowseName = browseName,
+            SymbolicName = symbolicName,
+            SuperType = superType,
+            NodeSet = nodeSetModel,
+            NodeId = newNodeId.ToString(),
+            IsAbstract = isAbstract,
+            InverseName = inverseName != null ? new List<NodeModel.LocalizedText>
+            {
+                new NodeModel.LocalizedText { Locale = "en-US", Text = inverseName }
+            } : null,
+            Symmetric = symmetric
+        };
+
+        return await Task.FromResult(referenceType);
+    }
 }

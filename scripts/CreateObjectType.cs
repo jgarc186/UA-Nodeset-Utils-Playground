@@ -19,18 +19,14 @@ public class CreateObjectType : BaseScript
         var superType = uaObjectTypes.First(x => x.DisplayName.First().Text == "BaseObjectType");
 
         uint nextNodeId = 1000;
-        var newNodeId = new ExpandedNodeId(nextNodeId++, newNodeSetModel.ModelUri);
-        var animalType = new ObjectTypeModel
-        {
-            DisplayName = new List<NodeModel.LocalizedText> { "Animal Type" },
-            BrowseName = "Animal Type",
-            SymbolicName = "animal_type",
-            SuperType = superType,
-            NodeSet = newNodeSetModel,
-            NodeId = newNodeId.ToString(),
-            Properties = new List<VariableModel>(),
-            DataVariables = new List<DataVariableModel>(),
-        };
+        var animalType = await CreateObjectTypeAsync(
+            newNodeSetModel,
+            "Animal Type",
+            "animal_type",
+            superType,
+            nextNodeId,
+            newNodeSetModel
+        );
 
         newNodeSetModel.ObjectTypes.Add(animalType);
 
