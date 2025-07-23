@@ -1,4 +1,4 @@
-namespace Ua_Nodeset_Utils_Playground.Scripts;
+namespace UA_Nodeset_Utils_Playground.Scripts;
 
 using CESMII.OpcUa.NodeSetModel;
 using CESMII.OpcUa.NodeSetModel.Factory.Opc;

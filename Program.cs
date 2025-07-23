@@ -7,7 +7,7 @@ var assembly = Assembly.GetExecutingAssembly();
 
 // Find all public classes in the Scripts namespace with a RunAsync or Run method
 var scriptTypes = assembly.GetTypes()
-    .Where(t => t.IsClass && t.IsPublic && t.Namespace == "Ua_Nodeset_Utils_Playground.Scripts")
+    .Where(t => t.IsClass && t.IsPublic && t.Namespace == "UA_Nodeset_Utils_Playground.Scripts" && t.Name != "BaseScript")
     .ToList();
 
 if (scriptTypes.Count == 0)

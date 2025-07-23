@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Opc.Ua;
 using Opc.Ua.Export;
 
-public class CreateObjectType : BaseScript
+public class CreateRelationshipType : BaseScript
 {
     public static async Task RunAsync()
     {
