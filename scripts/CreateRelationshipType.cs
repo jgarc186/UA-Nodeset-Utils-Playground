@@ -13,35 +13,34 @@ public class CreateRelationshipType : BaseScript
         var uaBaseModel = await LoadUaNodeSetAsync("opcfoundation.org.UA.NodeSet2.xml");
 
         // Creating new NodeSetModel with a reference to the Base UA NodeSet
-        var newNodeSetModel = new NodeSetModel
-        {
-            ModelUri = "https://opcua.rocks/UA",
-            RequiredModels = new List<RequiredModelInfo>
-            {
-                new RequiredModelInfo
-                {
-                    ModelUri = uaBaseModel.ModelUri,
-                    PublicationDate = uaBaseModel.PublicationDate,
-                    Version = uaBaseModel.Version
-                }
-            },
-        };
+        var newNodeSetModel = await CreateNodeSetModelAsync("https://opcua.rocks/UA", uaBaseModel.ModelUri, uaBaseModel.PublicationDate, uaBaseModel.Version);
 
         var uaObjectTypes = uaBaseModel.ObjectTypes;
         var superType = uaObjectTypes.First(x => x.DisplayName.First().Text == "BaseObjectType");
 
         uint nextNodeId = 1000;
         var newNodeId = new ExpandedNodeId(nextNodeId++, newNodeSetModel.ModelUri);
-        var animalType = new ObjectTypeModel
+        // var animalType = new ObjectTypeModel
+        // {
+        //     DisplayName = new List<NodeModel.LocalizedText> { "Animal Type" },
+        //     BrowseName = "Animal Type",
+        //     SymbolicName = "animal_type",
+        //     SuperType = superType,
+        //     NodeSet = newNodeSetModel,
+        //     NodeId = newNodeId.ToString(),
+        //     Properties = new List<VariableModel>(),
+        //     DataVariables = new List<DataVariableModel>(),
+        // };
+
+        var animalType = new ReferenceTypeModel
         {
-            DisplayName = new List<NodeModel.LocalizedText> { "Animal Type" },
-            BrowseName = "Animal Type",
-            SymbolicName = "animal_type",
-            SuperType = superType,
+            DisplayName = new List<NodeModel.LocalizedText> { "Animal Relationship" },
+            BrowseName = "AnimalRelationship",
+            SymbolicName = "animal_relationship",
+            SuperType = uaBaseModel.ReferenceTypes.First(x => x.DisplayName.First().Text == "NonHierarchicalReferences"),
             NodeSet = newNodeSetModel,
-            NodeId = newNodeId.ToString(),
-            Properties = new List<VariableModel>(),
-            DataVariables = new List<DataVariableModel>(),
+            NodeId = new ExpandedNodeId(nextNodeId++, newNodeSetModel.ModelUri).ToString(),
+            // InverseName = "isRelatedTo",
         };
 
         newNodeSetModel.ObjectTypes.Add(animalType);

@@ -25,4 +25,31 @@ public class BaseScript
 
         return uaBaseModel;
     }
+
+    /// <summary>
+    /// Creates a new NodeSetModel with a required model.
+    /// </summary>
+    /// <param name="modelUri">The URI of the new NodeSetModel.</param>
+    /// <param name="requiredModelUri">The URI of the required model.</param>
+    /// <param name="publicationDate">The publication date of the required model.</param>
+    /// <param name="version">The version of the required model.</param>
+    /// <returns>A Task that represents the asynchronous operation, containing the created NodeSetModel.</returns>
+    protected static async Task<NodeSetModel> CreateNodeSetModelAsync(string modelUri, string requiredModelUri, DateTime? publicationDate, string version)
+    {
+        var nodeSetModel = new NodeSetModel
+        {
+            ModelUri = modelUri,
+            RequiredModels = new List<RequiredModelInfo>
+            {
+                new RequiredModelInfo
+                {
+                    ModelUri = requiredModelUri,
+                    PublicationDate = publicationDate,
+                    Version = version
+                }
+            },
+        };
+
+        return await Task.FromResult(nodeSetModel);
+    }
 }

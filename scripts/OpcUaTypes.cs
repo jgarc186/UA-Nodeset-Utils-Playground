@@ -14,13 +14,13 @@ public class OpcUaTypes
         var nodeSetDirectory = "nodesets";
 
         // Set up the importer
-        var importer = new UANodeSetModelImporter(NullLogger.Instance);
         var nodeSetModels = new Dictionary<string, NodeSetModel>();
         var opcContext = new DefaultOpcUaContext(nodeSetModels, NullLogger.Instance);
 
         // Read and import the OPC UA nodeset
         var file = Path.Combine(nodeSetDirectory, "opcfoundation.org.UA.NodeSet2.xml");
         var nodeSet = UANodeSet.Read(new FileStream(file, FileMode.Open));
+        var importer = new UANodeSetModelImporter(NullLogger.Instance);
         await importer.LoadNodeSetModelAsync(opcContext, nodeSet);
         var uaModel = nodeSetModels.First();
 

@@ -13,19 +13,7 @@ public class CreateObjectType : BaseScript
         var uaBaseModel = await LoadUaNodeSetAsync("opcfoundation.org.UA.NodeSet2.xml");
 
         // Creating new NodeSetModel with a reference to the Base UA NodeSet
-        var newNodeSetModel = new NodeSetModel
-        {
-            ModelUri = "https://opcua.rocks/UA",
-            RequiredModels = new List<RequiredModelInfo>
-            {
-                new RequiredModelInfo
-                {
-                    ModelUri = uaBaseModel.ModelUri,
-                    PublicationDate = uaBaseModel.PublicationDate,
-                    Version = uaBaseModel.Version
-                }
-            },
-        };
+        var newNodeSetModel = await CreateNodeSetModelAsync("https://opcua.rocks/UA", uaBaseModel.ModelUri, uaBaseModel.PublicationDate, uaBaseModel.Version);
 
         var uaObjectTypes = uaBaseModel.ObjectTypes;
         var superType = uaObjectTypes.First(x => x.DisplayName.First().Text == "BaseObjectType");
