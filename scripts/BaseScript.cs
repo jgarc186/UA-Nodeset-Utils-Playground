@@ -53,6 +53,16 @@ public class BaseScript
         return await Task.FromResult(nodeSetModel);
     }
 
+    /// <summary>
+    /// Creates a new ObjectTypeModel with the specified parameters.
+    /// summary>
+    /// <param name="nodeSetModel">The NodeSetModel to which the new ObjectType will belong.</param>
+    /// <param name="browseName">The browse name of the new ObjectType.</param>
+    /// <param name="symbolicName">The symbolic name of the new ObjectType.</param>
+    /// <param name="superType">The super type of the new ObjectType.</param>
+    /// <param name="nextNodeId">The next available NodeId for the new ObjectType.</param>
+    /// <param name="newNodeSetModel">The NodeSetModel to which the new ObjectType will belong.</param>
+    /// <returns>A Task that represents the asynchronous operation, containing the created ObjectTypeModel.</returns>
     protected static async Task<ObjectTypeModel> CreateObjectTypeAsync(
         NodeSetModel nodeSetModel,
         string browseName,

@@ -45,7 +45,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Opc.Ua;
 using Opc.Ua.Export;
 
-public class MyNewScript
+public class MyNewScript : BaseScript
 {
     public static async Task RunAsync()
     {
